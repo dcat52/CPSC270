@@ -13,14 +13,6 @@ import org.junit.Test;
 public class BSTTest {
 
     /**
-     * Test method for {@link BST#find(Album)}.
-     */
-    @Test
-    public final void testFind() {
-        fail("Not yet implemented"); // TODO
-    }
-
-    /**
      * Test method for {@link BST#inOrder()}.
      */
     @Test
@@ -29,19 +21,25 @@ public class BSTTest {
     }
 
     /**
-     * Test method for {@link BST#insert(Album)}.
+     * Test method for isEmpty & insert & find
      */
     @Test
-    public final void testInsert() {
-        fail("Not yet implemented"); // TODO
-    }
+    public final void testIsEmptyAndInsertAndFind() {
+        BST bst = new BST();
+        boolean actual = bst.isEmpty();
+        assertTrue(actual);
+        
+        String[] s = { "" };
+        Album a = new Album("a", "", s);
+        actual = bst.find(a);
+        assertFalse(actual);
+        
+        bst.insert(a);
+        actual = bst.isEmpty();
+        assertFalse(actual);
 
-    /**
-     * Test method for {@link BST#isEmpty()}.
-     */
-    @Test
-    public final void testIsEmpty() {
-        fail("Not yet implemented"); // TODO
+        actual = bst.find(a);
+        assertFalse(actual);
     }
 
     /**
